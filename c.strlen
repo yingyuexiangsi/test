@@ -1,0 +1,20 @@
+#include<stdio.h>
+#include<assert.h>
+int my_strlen(char*str)
+{
+   char*start=str;
+   char*end=str;
+   assert(*end!=NULL);
+     while(*end)
+ {
+      end++;
+ }
+return end-start;
+}
+int main()
+{
+  char arr[]="bit";
+  int ret=my_strlen(bit);
+  printf("%d",ret);
+  return 0;
+} 

@@ -1,0 +1,8 @@
+#include<stdio.h>
+int main()
+{
+  char arr[]="bit";
+  int sz=sizeof(arr)-1;
+  printf("%d",sz);
+  return 0;
+}

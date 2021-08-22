@@ -1,0 +1,9 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+ char arr[]="bit";
+ int ret=strlen(arr);
+ printf("%d",ret);
+ return 0;
+}
