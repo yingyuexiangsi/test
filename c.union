@@ -1,0 +1,11 @@
+union u
+{
+	char a;
+	int c;
+	char arr[5];
+};
+int main()
+{
+	printf("%d", sizeof(u));
+  //字节对齐，8字节
+}
