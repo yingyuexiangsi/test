@@ -1,13 +1,10 @@
 from fastapi import Depends
 from fastapi_users.db import SQLAlchemyUserDatabase
-from collections.abc import AsyncGenerator
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.orm import DeclarativeBase
-from fastapi_users.authentication import JWTStrategy
 
-from src.auth.models import Base, User
-from src.auth.service import get_async_session
-from src.config import settings
+from src.auth.models import User
+from src.auth.db import get_async_session
+
 
 
 # 获取用户表

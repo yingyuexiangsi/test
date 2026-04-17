@@ -1,5 +1,4 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
-from pydantic import PostgresDsn
 from pathlib import Path
 
 ROOT_DIR = Path(__file__).parent.parent.parent

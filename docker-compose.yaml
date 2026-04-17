@@ -1,9 +1,9 @@
 services:
+  # 数据库服务
   db:
     image: ankane/pgvector:latest
     container_name: postgres_db
     restart: always
-    # 不仅仅读取 env_file，还要手动建立映射关系
     environment:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
@@ -11,7 +11,19 @@ services:
     ports:
       - "${DB_PORT}:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - ./db_data/postgres_data:/var/lib/postgresql/data
 
-volumes:
-  postgres_data:
+  # MinIO 服务
+  minio:
+    image: minio/minio:latest
+    container_name: minio_storage
+    restart: always
+    ports:
+      - "9000:9000"    # API 端口
+      - "9001:9001"    # 控制台端口 (浏览器访问)
+    environment:
+      - MINIO_ROOT_USER=${MINIO_ROOT_USER}      # 管理员账号 (建议在 .env 设置)
+      - MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD}  # 管理员密码 (建议在 .env 设置)
+    volumes:
+      - ./db_data/minio_data:/data    # 文件存储位置
+    command: server /data --console-address ":9001"

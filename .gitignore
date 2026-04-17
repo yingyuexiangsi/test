@@ -1,6 +1,5 @@
 # Python-generated files
 __pycache__/
-alembic/__pycache__/
 *.py[oc]
 build/
 dist/
@@ -12,3 +11,6 @@ wheels/
 
 # .env files
 .env
+
+# Logs and databases
+db_data/
